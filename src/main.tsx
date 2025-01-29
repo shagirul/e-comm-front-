@@ -36,6 +36,22 @@ const Root = () => {
   const [showReloadPrompt, setShowReloadPrompt] = useState(false);
 
   useEffect(() => {
+    const pingServer = async () => {
+      try {
+        const response = await fetch(
+          "https://shaggy-e-comm.onrender.com/api/v1/product/categories"
+        );
+        const data = await response.json();
+        console.log(data); // Handle the response data
+      } catch (error) {
+        console.error("Error pinging the server:", error);
+      }
+    };
+
+    pingServer();
+  }, []);
+
+  useEffect(() => {
     if (!showSplash) return; // Don't show if already visited
 
     // Countdown timer
@@ -43,7 +59,7 @@ const Root = () => {
       setCountdown((prev) => {
         if (prev <= 1) {
           clearInterval(countdownTimer); // Stop countdown at 0
-          setShowReloadPrompt(true); // Show reload prompt when time is up
+          window.location.reload(); // Automatically reload the page when time is up
         }
         return prev - 1;
       });
