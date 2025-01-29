@@ -76,7 +76,7 @@ export default function NavBar() {
                 COLLECTION
               </NavLink> */}
               <NavLink
-                className={`  flex    w-full  md:px-2 md:py-1 `}
+                className={`  flex    w-full  md:px-2 md:py-1 items-center justify-center`}
                 // className={({ isActive }) =>
                 //   isActive
                 //     ? " whitespace-nowrap text-accent     md:px-2 md:py-1"
@@ -92,7 +92,7 @@ export default function NavBar() {
                     <li
                       // onClick={() => {}}
                       key={index}
-                      className={`  flex  capitalize   `}
+                      className={`  flex  capitalize  items-center justify-center `}
                     >
                       <NavLink
                         onClick={() => {
